@@ -81,7 +81,7 @@ attr_accessor :id, :name, :breed
 
 
    result = DB[:conn].execute(sql, name)
-  new_from_db(result[0])
+  new_from_db(result[1])
    end
 
    def update
