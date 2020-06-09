@@ -41,7 +41,6 @@ attr_accessor :id, :name, :breed
 
   def self.create(attribute_hash)
     dog = self.new(attribute_hash)
-    binding.pry
     dog.save
     dog
   end
@@ -69,8 +68,8 @@ attr_accessor :id, :name, :breed
     dogs = DB[:conn].execute("SELECT * FROM dogs WHERE name = ? AND breed = ?", name, breed)
     if !dogs.empty?
       dog_data = dogs[0]
-
       dogs = new_from_db(dog_data)
+      binding.pry
     else
       dogs = self.create(name: name, breed: breed)
     end
