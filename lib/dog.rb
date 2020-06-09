@@ -68,7 +68,7 @@ attr_accessor :id, :name, :breed
     dogs = DB[:conn].execute("SELECT * FROM dogs WHERE name = ? AND breed = ?", name, breed)
     if !dogs.empty?
       dog_data = dogs[0]
-      binding.pry
+      
       dogs = new_from_db(dog_data)
     else
       dogs = self.create(name: name, breed: breed)
