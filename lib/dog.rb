@@ -76,13 +76,11 @@ attr_accessor :id, :name, :breed
 
   end
 
-   def find_by_name(name)
-     sql = "SELECT * FROM dogs WHERE name = ?"
-
-
-   result = DB[:conn].execute(sql, name)
-  new_from_db(result[1])
-   end
+  def self.find_by_name(name)
+   sql = "SELECT * FROM dogs WHERE name = ?"
+   result = DB[:conn].execute(sql,name)
+   new_from_db(result[0])
+ end
 
    def update
      sql = <<-SQL
