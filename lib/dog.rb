@@ -73,7 +73,7 @@ attr_accessor :id, :name, :breed
       VALUES (?, ?)
       SQL
       DB[:conn].execute(sql, self.name, self.breed)
-    
+
 
   end
 
