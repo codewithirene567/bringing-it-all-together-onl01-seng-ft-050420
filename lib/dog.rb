@@ -51,5 +51,5 @@ attr_accessor :id, :name, :breed
     }
     self.new(attribute_hash)
   end
-  
+
 end
