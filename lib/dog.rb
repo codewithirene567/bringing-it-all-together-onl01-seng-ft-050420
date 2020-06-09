@@ -65,15 +65,14 @@ attr_accessor :id, :name, :breed
   end
 
   def self.find_or_create_by(name:, breed:)
-    if self.id
-      self.update
+    song = DB[:conn].execute("SELECT * FROM dog WHERE name = ? AND breed = ?", name, breed)
+    if !dog.empty?
+      dog_attributes = dog[0]
+      song = Song.new(id[0], name[1], breed[2])
     else
-      sql = <<-SQL
-      INSERT INTO dogs (name, breed)
-      VALUES (?, ?)
-      SQL
-      DB[:conn].execute(sql, self.name, self.breed)
-      @id= DB[:conn].execute("SELECT last_insert_rowid() FROM dogs")[0][0]
+      dog = self.create(name: name, breed: breed)
+    end
+    dog
     end
   end
 
