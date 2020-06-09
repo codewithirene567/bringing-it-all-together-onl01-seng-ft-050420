@@ -35,11 +35,11 @@ attr_accessor :id, :name, :breed
 
       DB[:conn].execute(sql, self.name, self.breed)
       @id = DB[:conn].execute("SELECT last_insert_rowid() FROM dogs") [0][0]
-    
+
   end
 
   def self.create(attribute_hash)
-    dog = self.new(hash_of_attributes)
+    dog = self.new(attribute_hash
     dog.save
     dog
   end
