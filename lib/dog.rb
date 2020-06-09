@@ -61,5 +61,5 @@ attr_accessor :id, :name, :breed
       self.new_from_db(row)
     end.first
   end
-  
+
 end
