@@ -73,7 +73,7 @@ attr_accessor :id, :name, :breed
       dogs = self.create(name: name, breed: breed)
     end
     dogs
-    end
+    
   end
 
    def find_by_name(name)
