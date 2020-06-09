@@ -74,7 +74,7 @@ attr_accessor :id, :name, :breed
     end
     dogs
     end
-  
+
 
 
 end
