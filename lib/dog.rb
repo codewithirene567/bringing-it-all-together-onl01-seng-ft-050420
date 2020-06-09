@@ -55,5 +55,6 @@ attr_accessor :id, :name, :breed
   def self.find_by_id(id)
     sql = <<-SQL
     SELECT id FROM dogs WHEN ? = id
+    SQL
   end
 end
