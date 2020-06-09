@@ -69,7 +69,6 @@ attr_accessor :id, :name, :breed
     if !dogs.empty?
       dog_data = dogs[0]
       dogs = new_from_db(dog_data)
-      binding.pry
     else
       dogs = self.create(name: name, breed: breed)
     end
