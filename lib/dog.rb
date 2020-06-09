@@ -28,9 +28,6 @@ attr_accessor :id, :name, :breed
   end
 
   def save
-    if self.id
-      self.update #if it exists then update it, otherwise create new instance with the id
-    else
       sql = <<-SQL
       INSERT INTO dogs (name, breed)
       VALUES (?, ?)
