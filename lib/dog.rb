@@ -64,7 +64,16 @@ attr_accessor :id, :name, :breed
     end.first
   end
 
-  def self.find_or_create_by
+  def self.find_or_create_by(name:, breed:)
+    if self.id
+      self.update
+    else
+      sql = <<-SQL
+      INSERT INTO dogs (name, breed)
+      VALUES (?, ?)
+      SQL
+      DB[:conn].execute(sql, self.name, self.breed)
+    
 
   end
 
