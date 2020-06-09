@@ -81,9 +81,8 @@ attr_accessor :id, :name, :breed
      SELECT * FROM dogs WHERE name = ? LIMIT 1
    SQL
 
-   DB[:conn].execute(sql, name).collect do |row|
-     self.new_from_db(row)
-   end.first
+   result = DB[:conn].execute(sql, name)
+  new_from_db(result[0])
    end
 
    def update
