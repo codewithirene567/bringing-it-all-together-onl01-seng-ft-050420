@@ -78,7 +78,7 @@ attr_accessor :id, :name, :breed
 
    def find_by_name(name)
      sql = "SELECT * FROM dogs WHERE name = ?"
-   
+
 
    result = DB[:conn].execute(sql, name)
   new_from_db(result[0])
