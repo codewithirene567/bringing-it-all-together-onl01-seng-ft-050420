@@ -42,8 +42,8 @@ attr_accessor :id, :name, :breed
   end
 
   def self.create(attribute_hash)
-    dog = Dogs.new(attribute_hash)
-    dog.each {|key, value| dog.send}
+    dog = self.new(hash_of_attributes)
+    dog.save
     dog
   end
 end
